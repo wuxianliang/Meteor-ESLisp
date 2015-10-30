@@ -1,23 +1,23 @@
 Package.describe({
-  name: 'dessix:livescript-compiler',
-  summary: "LiveScript, a CoffeeScript descendant with improvements and new features.",
-  version: "0.2.0",
-  git: "https://github.com/Dessix/Meteor-LiveScript.git"
+  name: 'wuxianliang:eslisp-compiler',
+  summary: "ESLisp, a lisp way to code JavaScript.",
+  version: "0.0.1",
+  git: "https://github.com/wuxianliang/Meteor-ESLisp.git"
 });
 
 Package._transitional_registerBuildPlugin({
-  name: "compileLiveScript",
+  name: "compileESLisp",
   use: [],
   sources: [
-    'plugin/compileLiveScript.js'
+    'plugin/compileESLisp.js'
   ],
   npmDependencies: {
-    "livescript": "1.4.0"
+    "eslisp": "0.6.2"
   }
 });
 
 Package.on_use(function(api, where) {
-  api.export("prelude");
-  api.add_files("prelude-browser-min.js", ["server", "client"]);
-  api.add_files("requirePrelude.js", ["server", "client"]);
+  //api.export("prelude");
+  //api.add_files("prelude-browser-min.js", ["server", "client"]);
+  //api.add_files("requirePrelude.js", ["server", "client"]);
 });

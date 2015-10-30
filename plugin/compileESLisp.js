@@ -7,24 +7,24 @@ var options;
 
 ///////////////////////////////////////////////////////////////////////
 //                                                                   //
-// plugin/compile-livescript.js                                      //
+// plugin/compile-eslisp.js                                      //
 //                                                                   //
 ///////////////////////////////////////////////////////////////////////
                                                                      //
 var fs = Npm.require('fs');                                          // 1
 var path = Npm.require('path');                                      // 2
-var livescript = Npm.require('livescript');                          // 3
+var eslisp = Npm.require('eslisp');                          // 3
                                                                      // 4
 var handler = function (compileStep) {                               // 5
   var source = compileStep.read().toString('utf8');                  // 6
   var outputFile = compileStep.inputPath + ".js";                    // 7
                                                                      // 8
-  options = {                                                        // 9
-    bare: true                                                       // 10
-  };                                                                 // 11
+  //options = {                                                        // 9
+  //  bare: true                                                       // 10
+  //};                                                                 // 11
                                                                      // 12
   try {                                                              // 13
-    var output = livescript.compile(source, options);                // 14
+    var output = elisp(source);                // 14
   } catch (e) {                                                      // 15
     throw new Error(                                                 // 16
       compileStep.inputPath + ':' +                                  // 17
@@ -40,7 +40,7 @@ var handler = function (compileStep) {                               // 5
   });                                                                // 27
 };                                                                   // 28
                                                                      // 29
-Plugin.registerSourceHandler('ls', handler);                         // 30
+Plugin.registerSourceHandler('esl', handler);                         // 30
 ///////////////////////////////////////////////////////////////////////
 
 }).call(this);
@@ -48,7 +48,7 @@ Plugin.registerSourceHandler('ls', handler);                         // 30
 
 /* Exports */
 if (typeof Package === 'undefined') Package = {};
-Package.compileLiveScript = {};
+Package.compileESLisp = {};
 
 })();
 
