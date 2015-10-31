@@ -24,7 +24,7 @@ var handler = function (compileStep) {                               // 5
   //};                                                                 // 11
                                                                      // 12
   try {                                                              // 13
-    var output = elisp(source);                // 14
+    var output = eslisp(source);                // 14
   } catch (e) {                                                      // 15
     throw new Error(                                                 // 16
       compileStep.inputPath + ':' +                                  // 17
